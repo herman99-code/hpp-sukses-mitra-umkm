@@ -7,7 +7,7 @@ import { ResultSummary } from './components/ResultSummary';
 import { CostChart } from './components/CostChart';
 import { HistoryPanel } from './components/HistoryPanel';
 import { generateHPPReport } from './utils/calculations';
-import { Printer, RotateCcw, Sparkles } from 'lucide-react';
+import { Printer, RotateCcw } from 'lucide-react';
 
 
 const INITIAL_STATE: CalculationState = {
@@ -104,18 +104,26 @@ function App() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 select-none">
       {/* HEADER SECTION */}
-      <header className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-10 pb-8 border-b border-gray-800/80">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-indigo-400 font-bold text-xs tracking-widest uppercase">
-            <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-            UMKM Indonesia Tangguh
+      <header className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-10 pb-8 border-b border-amber-900/30">
+        <div className="flex items-start gap-4">
+          {/* Logo */}
+          <img
+            src={`${import.meta.env.BASE_URL}logo.jpg`}
+            alt="Solusi Mitra UMKM Logo"
+            className="w-14 h-14 md:w-16 md:h-16 rounded-xl object-cover shadow-lg shadow-amber-500/20 ring-1 ring-amber-500/20 flex-shrink-0"
+          />
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 font-bold text-xs tracking-widest uppercase">
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-blue-400 bg-clip-text text-transparent">Solusi Mitra UMKM</span>
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold">Solusi Tepat, Usaha Berkembang</span>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-amber-100 to-blue-400 bg-clip-text text-transparent !my-0">
+              Kalkulator HPP Produk
+            </h1>
+            <p className="text-gray-400 text-sm max-w-2xl !mt-0.5">
+              Hitung Harga Pokok Penjualan (HPP) produk manufaktur, kuliner, kerajinan tangan, atau jasa Anda dengan rincian biaya real-time.
+            </p>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-100 to-indigo-400 bg-clip-text text-transparent !my-0">
-            Kalkulator HPP Produk
-          </h1>
-          <p className="text-gray-400 text-sm max-w-2xl !mt-1">
-            Hitung Harga Pokok Penjualan (HPP) produk manufaktur, kuliner, kerajinan tangan, atau jasa Anda dengan rincian biaya real-time.
-          </p>
         </div>
         
         {/* Header Actions */}
@@ -132,7 +140,7 @@ function App() {
           <button
             type="button"
             onClick={handlePrint}
-            className="py-2.5 px-5 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 active:scale-95 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-lg shadow-indigo-600/25"
+            className="py-2.5 px-5 bg-gradient-to-r from-amber-600 to-blue-600 hover:from-amber-500 hover:to-blue-500 active:scale-95 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-lg shadow-amber-600/25"
           >
             <Printer className="w-4 h-4" /> Cetak / Unduh PDF
           </button>
@@ -232,14 +240,14 @@ function App() {
       </div>
 
       {/* FOOTER */}
-      <footer className="mt-16 pt-8 border-t border-gray-900/60 text-center text-gray-500 text-xs no-print flex flex-col sm:flex-row justify-between gap-4">
+      <footer className="mt-16 pt-8 border-t border-amber-900/20 text-center text-gray-500 text-xs no-print flex flex-col sm:flex-row justify-between gap-4">
         <div>
-          &copy; {new Date().getFullYear()} Sukses Mitra UMKM - Hak Cipta Dilindungi.
+          &copy; {new Date().getFullYear()} Solusi Mitra UMKM — Solusi Tepat, Usaha Berkembang.
         </div>
         <div className="flex gap-4 justify-center">
-          <a href="#" className="hover:text-indigo-400 transition-colors">Panduan</a>
-          <a href="#" className="hover:text-indigo-400 transition-colors">Kebijakan Privasi</a>
-          <a href="#" className="hover:text-indigo-400 transition-colors">Bantuan</a>
+          <a href="#" className="hover:text-amber-400 transition-colors">Panduan</a>
+          <a href="#" className="hover:text-amber-400 transition-colors">Kebijakan Privasi</a>
+          <a href="#" className="hover:text-amber-400 transition-colors">Bantuan</a>
         </div>
       </footer>
     </div>
